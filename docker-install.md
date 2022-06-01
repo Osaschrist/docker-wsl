@@ -21,13 +21,17 @@
 `sudo apt install docker-ce docker-ce-cli containerd.io
 `
 ### After installing docker, you need to add user to group 
-`sudo usermod -aG docker $USER
-`
+`sudo usermod -aG docker $USER`
+
 ## Configure dockerd which is the docker deamon
 `DOCKER_DIR=/var/run`
+
 `mkdir -pm o=,ug=rwx "$DOCKER_DIR"`
+
 `sudo chgrp docker "$DOCKER_DIR"`
+
 `sudo mkdir /etc/docker`
+
 `sudo nano /etc/docker/daemon.json`
 
 Inside the file you have to add this line and save it.
@@ -64,6 +68,7 @@ and add the following line below
 
 # Install Docker Compose 
 `COMPOSE_VERSION=1.29.2`
+
 `sudo curl -L "https://github.com/docker/compose/releases/download/$COMPOSE_VERSION/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose`
 
 In order to make the binary file ejecutable, you have to give it the ejecution command.
